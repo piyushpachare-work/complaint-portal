@@ -5,7 +5,7 @@ import { ArrowRight, Shield, Clock, CheckCircle, Users } from 'lucide-react';
 
 // Simulated auth hook - replace with actual Supabase auth
 const useAuth = () => {
-    const [user, setUser] = useState<any>(null);
+    const [user] = useState<{ role: string } | null>(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {

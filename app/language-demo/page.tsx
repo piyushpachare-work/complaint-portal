@@ -48,10 +48,11 @@ export default function LanguageDemo() {
         };
 
         const config = configs[status];
+        const translationKey = status === 'in_progress' ? 'inProgress' : status;
 
         return (
             <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${config.bg} ${config.text}`}>
-                {t(status === 'in_progress' ? 'inProgress' : (status as any))}
+                {t(translationKey as 'open' | 'inProgress' | 'resolved')}
             </span>
         );
     };

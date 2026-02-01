@@ -6,8 +6,21 @@ import {
     FileText, Loader2, User, LogOut, Languages
 } from 'lucide-react';
 
+// Type definitions
+interface Complaint {
+    id: number;
+    title: string;
+    category: string;
+    status: string;
+    created_at: string;
+    photo_url: string | null;
+    description: string;
+    ward_id: number;
+    resolved_at?: string;
+}
+
 // Mock data for demonstration
-const MOCK_COMPLAINTS = [
+const MOCK_COMPLAINTS: Complaint[] = [
     {
         id: 1,
         title: 'Large pothole on Main Street near City Hall',
@@ -113,8 +126,8 @@ const formatDate = (dateString: string) => {
 };
 
 export default function MyComplaintsPage() {
-    const [complaints, setComplaints] = useState<any[]>([]);
-    const [filteredComplaints, setFilteredComplaints] = useState<any[]>([]);
+    const [complaints, setComplaints] = useState<Complaint[]>([]);
+    const [filteredComplaints, setFilteredComplaints] = useState<Complaint[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [searchQuery, setSearchQuery] = useState('');
     const [statusFilter, setStatusFilter] = useState('all');
